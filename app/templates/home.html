@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,11 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/05d8042143.js" crossorigin="anonymous"></script> 
-   
-  
-
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>OLIVET</title>
-    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -21,12 +20,12 @@
         <nav>
             <section class="contenedor nav">
                 <div class="logo">
-                    <img src="/assets/LOGO_OLIVET.jpg" alt="">
+    				<img src="{% static 'assets/LOGO_OLIVET.jpg' %}" alt="">
                 </div>
                 <div class="enlaces-header">
-                    <a href="#">Inicio</a>
-                    <a href="#">Inicio</a>
-                    <a href="#">Inicio</a>
+                    <a href="#">Nosotros</a>
+                    <a href="#">servicios</a>
+                    <a href="#">Médicos</a>
                     <a href="#">Inicio</a>
                     <a href="#">Inicio</a>
                 </div>
@@ -38,11 +37,12 @@
         <div class="contenedor">
             <section class="contenido-header">
                 <section class="textos-header">
-                    <h1>Clinica Olivet</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, dolorum.</p>
+                    <h1>Clinica Veterinaria Olivet</h1>
+                    <p>24/7 al servicio y bienestar de tu mascota </p>
                     <a href="#">Urgencias 24/7</a>
                 </section>
-                <img  src="/assets/perritu.jpg" alt="">
+    				<img src="{% static 'assets/perritu.jpg' %}" alt="">
+
             </section>
         </div>
     </header>
@@ -81,7 +81,7 @@
               </div>
               <div class="items-service"> 
               <i class="fas fa-notes-medical"></i>
-              <h3>Cirugia y profilaxis</h3>
+              <h3>Cirugía</h3>
               <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas quis aliquid, saepe alias neque perferendis in dolor
                  laboriosam nam autem explicabo sunt distinctio est! Nisi doloribus placeat enim nihil!</p>
               <a href="" class=""> Readmore</a>
@@ -98,11 +98,11 @@
     </section>
     <section class="medical contenedor">
         <section class="textos-medical">
-            <h1>Medicos</h1>
+            <h1>Equipo de Trabajo</h1>
             <p>En olivet contamos con un equipo de profesionales capacitados llenos de compromiso y amor</p>
             <a href="#">Learn more</a>
         </section>
-        <img class="dog"src="/assets/medico.jpg" alt="" > 
+        <img class="dog" src="{% static 'assets/medico2.jpg' %}" alt="">
     </section>
     <div class="contenedor-s"> 
         <h4>Clientes felices.</h4>
@@ -145,31 +145,34 @@
 
 </div>
     </div>
-  <section class="contenedor1">
-      <form action="" class="form">
-          <h2 class="form-title">Contactanos!</h2>
-      <div class="form-container">
-          <div class="form-group">
-              <input type="text" id="name" class="form-input" placeholder=" ">
-              <label for="name" class="form-label">Nombre </label>
-              <span class="form-line"></span>
-          </div>
-          <div class="form-group">
-            <input type="text" id="correo"class="form-input" placeholder=" ">
-            <label for="name" class="form-label"> correo </label>
-            <span class="form-line"></span>
+    <section class="contenedor1" style="display: flex;">
+        <form action="" class="form">
+            <h2 class="form-title">Contáctanos!</h2>
+        <div class="form-container">
+            <div class="form-group">
+                <input type="text" id="name" class="form-input" placeholder=" ">
+                <label for="name" class="form-label">Nombre </label>
+                <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" id="correo"class="form-input" placeholder=" ">
+                <label for="name" class="form-label"> correo </label>
+                <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+            <textarea id="w3review" name="w3review" rows="4" cols="30"></textarea>
+            
+            </div>  
+            <input type="submit" class="form-submit" value="Enviar">
         </div>
-        <div class="form-group">
-        <textarea id="w3review" name="w3review" rows="4" cols="30"></textarea>
-          
-        </div>  
-        <input type="submit" class="form-submit" value="Enviar">
-      </div>
 
-    </form>
+        </form>
+        <div style="padding-left: 5%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d63624.35698062888!2d-74.12770693421896!3d4.678885329917571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d4.6787437999999995!2d-74.0927839!5e0!3m2!1ses!2sco!4v1628023344978!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
 
-<footer>
+    <footer>
         <div class="partFooter">
             <img src="" alt="">
         </div>
@@ -186,16 +189,16 @@
         <div class="partFooter">
             <h4>Redes sociales</h4>
             <div class="social-media">
-                    <i class="fab fa-facebook-f"></i>
+                    <a href="https://www.facebook.com/clinicaveterinariaolivet"><i class="fab fa-facebook-f" > </i></a>
                     <i class="fab fa-twitter"></i>
                     <i class="fab fa-instagram"></i>
                    
             </div>
-        </div> -->
+        </div>
     </footer>
-
-    <script src="slider.js"></script>
-    <script src="index.js"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    
 </body>
 
 </html>
