@@ -37,11 +37,11 @@
         <div class="contenedor">
             <section class="contenido-header">
                 <section class="textos-header">
-                    <h1>Clinica Veterinaria Olivet</h1>
+                    <h1>Clínica Veterinaria Olivet</h1>
                     <p>24/7 al servicio y bienestar de tu mascota </p>
-                    <a href="#">Urgencias 24/7</a>
+                    <a href="https://api.whatsapp.com/send?phone=3219045657"><img src="{% static 'assets/urgencias.png' %}" alt="Urgencias"></a>
                 </section>
-    				<img src="{% static 'assets/perritu.jpg' %}" alt="">
+    				<img src="{% static 'assets/panel.jpg' %}" alt="">
 
             </section>
         </div>
@@ -52,7 +52,7 @@
             <div class="contenedor-service"> 
               <div class="items-service"> 
               <i class="fas fa-notes-medical"></i>
-              <h3>Consulta medica y especializada</h3>
+              <h3>Consulta médica y especializada</h3>
               <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, incidunt. Quasi expedita ipsa odit cumque exercitationem.
                  itas odit earum nobiscommodi ullam!</p>
               <a href="" class=""> Readmore</a>
@@ -67,7 +67,7 @@
          
             <div class="items-service"> 
               <i class="fas fa-syringe"></i>
-              <h3>Laboratorio clinico</h3>
+              <h3>Laboratorio Clínico</h3>
               <p> Lorem ipsum dolor sit, amet consesaepeaccusamus molestiae dolorum rem vitae. Voluptatibus quo dolorum fugit deleniti. Qui, non ex veniam reiciendis soluta repellendus magnam eligendi. Veritatis earum 
                 eligendi laborum! Voluptas, odit a.</p>
               <a href="" class=""> Reaore</a>
@@ -145,22 +145,31 @@
 
 </div>
     </div>
-    <section class="contenedor1" style="display: flex;">
-        <form action="" class="form">
+    <section class="contenedor1" id="comentario" style="display: flex;">
+        <form action="/#comentario" class="form" method="post">
             <h2 class="form-title">Contáctanos!</h2>
-        <div class="form-container">
-            <div class="form-group">
-                <input type="text" id="name" class="form-input" placeholder=" ">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">
+                {{message}}
+            </div>
+            {% endfor %}
+
+            {% endif %}
+            {% csrf_token %}
+            <div class="form-container">
+             <div class="form-group">
+                <input type="text" id="name" name="nombre" class="form-input" placeholder=" ">
                 <label for="name" class="form-label">Nombre </label>
                 <span class="form-line"></span>
             </div>
             <div class="form-group">
-                <input type="text" id="correo"class="form-input" placeholder=" ">
+                <input type="email" id="correo" name="correo" class="form-input" placeholder=" " required oninvalid="this.setCustomValidity('Por favor, ingresa un coreo válido')" oninput="setCustomValidity('')">
                 <label for="name" class="form-label"> correo </label>
                 <span class="form-line"></span>
             </div>
             <div class="form-group">
-            <textarea id="w3review" name="w3review" rows="4" cols="30"></textarea>
+            <textarea id="comentario" name="comentario" style="text-align: left;" rows="4" cols="30" required oninvalid="this.setCustomValidity('Por favor, ingresa tu consulta o comentario')" oninput="setCustomValidity('')"></textarea>
             
             </div>  
             <input type="submit" class="form-submit" value="Enviar">
