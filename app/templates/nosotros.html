@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/05d8042143.js" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>OLIVET</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <section class="contenedor nav">
+                <div class="logo">
+
+        <a class="navbar-brand" href="{%url 'home'%}"><img src="{% static 'assets/LOGO_OLIVET.jpg' %}" height="60" alt="Logo"></a>
+
+                </div>
+                <div class="enlaces-header">
+                    <a href="#">Nosotrxs</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Médicos</a>
+                </div>
+                <div class="hamburguer">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </section>
+        </nav>
+        <div class="contenedor">
+            <section class="contenido-header">
+                <section class="textos-header" >
+                    <h1>¿QUIENES SOMOS?</h1>
+                    <p>Nuestra empresa esta dedicada a la salud animal es especial a la de las
+                        mascotas domesticas fundamentalmente la de los perros y gatos,
+                        brindan seguridad y tranquila a sus propietarios.</p>
+                </section>
+            </section>
+            <section class="contenido-header" style="margin-top: -350px;">
+                <section class="textos-header">
+                    <h1>Historia</h1>
+                    
+                    <p>La clínica veterinaria Olivet nace en octubre de 2012 con el nombre Clínica Veterinaria Olimevet que el desglose de su sigla da (OLI el apellido OLIVARES ME MEDICO VET VETERINARIO), a través de los años este nombre y ante cámara y comercio, por decisión familiar para generar una mayor recordación queda Clínica Veterinaria OLIVET. 
+                    <p>
+                        OLIVET es un emprendimiento que nace del sueño de su fundador Jhonathan Olivares Morales convirtiéndose en un sueño familiar, este sueño se ha logrado materializar junto a su cofundadora Paula Roa Ochoa, comenzamos a construir es proyecto en el  2012 en el barrio La Estradita  en el 2015  estuvimos por mas de 3 años en el barrio villas del dorado y  desde 2018 llegamos al barrio que nos ha visto crecer como empresarios La estrada, donde comenzamos como un consultorio veterinario , pasado después por clínica veterinaria y donde el en 2021 nos convertimos en una clínica veterinaria 24 horas con atención de urgencias , contamos en estos momentos con instalación amplias, con colegas especialista y con nuestro laboratorio clínico, con proyecciones  mayores como obtener nuestro ecógrafo y rayos x. </p>
+                    </p>
+                    </section>
+            </section>
+            <section class="contenido-header" style="margin-top: -350px;">
+                <section class="textos-header">
+                    <h2>Misión</h2>
+                    
+                    <p>En La clínica veterinaria Olivet ofrecemos tranquila, seguridad y confianza a los propietarios de las mascotas brindando soluciones altamente profesionales para el estado de salud de los pacientes, siempre contando con la mejor tecnología, el mejor personal y nunca olvidándonos que la empatía será nuestro mejor aliado.
+                    
+                    </p>
+                    </section>
+                    <section class="textos-header">
+                        <h2>Visión</h2>
+                        
+                        <p>
+                            En el 2030 ser recordar y posicionada como unas de las mejores clínicas de Bogotá, por su entrega con los pacientes y empatía con el cliente, contando con équidos de última tecnología y un personal altamente calificado, para siempre poder brindar una solución eficiente y eficaz bajo la necesidad de cada familia.
+                        </p>
+                        </section>
+                        <section class="textos-header">
+                            <h2>Identidad institucional </h2>
+                            
+                            <p>
+                                Somos una empresa que se enfoque en el bienestar y servicio al cliente queremos ser recordados por nuestra calidad humidad por brindar una solución bajo todos los parámetros clínicos, éticos, humanos y sociales, siendo lo más concisos y agiles para no prolongar una situación que se pueda solucionar prontamente.
+                            </p>
+                            </section>
+            </section>
+        </div>
+    </header>
+    <section class="about-us">
+        <div class="contenedor1">  
+            <h2 class="titulo">Médicos</h2>
+            <div class="contenedor-service"> 
+              Contamos con excelentes profesionales en todas nuestras áreas
+          </div>
+        </div>
+    </section>
+    <section class="medical contenedor">
+        <section class="textos-medical">
+            <h1>Equipo de Trabajo</h1>
+            <p>En olivet contamos con un equipo de profesionales capacitados llenos de compromiso y amor</p>
+            <a href="#">Learn more</a>
+        </section>
+        <img class="dog" src="{% static 'assets/medico2.jpg' %}" alt="">
+    </section>
+
+    <section class="contenedor1" id="comentario" style="display: flex;">
+        <form action="/#comentario" class="form" method="post">
+            <h2 class="form-title">Contáctanos!</h2>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}">
+                {{message}}
+            </div>
+            {% endfor %}
+
+            {% endif %}
+            {% csrf_token %}
+            <div class="form-container">
+             <div class="form-group">
+                <input type="text" id="name" name="nombre" class="form-input" placeholder=" ">
+                <label for="name" class="form-label">Nombre </label>
+                <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" id="correo" name="correo" class="form-input" placeholder=" " required oninvalid="this.setCustomValidity('Por favor, ingresa un coreo válido')" oninput="setCustomValidity('')">
+                <label for="name" class="form-label"> correo </label>
+                <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+            <textarea id="comentario" name="comentario" style="text-align: left;" rows="4" cols="30" required oninvalid="this.setCustomValidity('Por favor, ingresa tu consulta o comentario')" oninput="setCustomValidity('')"></textarea>
+            
+            </div>  
+            <input type="submit" class="form-submit" value="Enviar">
+        </div>
+
+        </form>
+        <div style="padding-left: 5%;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m21!1m12!1m3!1d63624.35698062888!2d-74.12770693421896!3d4.678885329917571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d4.6787437999999995!2d-74.0927839!5e0!3m2!1ses!2sco!4v1628023344978!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="partFooter">
+            <img src="" alt="">
+        </div>
+        <div class="partFooter">
+            <h4>Servicios</h4>
+            <a href="#">Services 1</a>
+           
+        </div>
+        <div class="partFooter">
+            <h4>Acerca de</h4>
+            <a href="#">About 1</a>
+         
+        </div>
+        <div class="partFooter">
+            <h4>Redes sociales</h4>
+            <div class="social-media">
+                    <a href="https://www.facebook.com/clinicaveterinariaolivet"><i class="fab fa-facebook-f" > </i></a>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                   
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/slider.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    
+</body>
+
+</html>

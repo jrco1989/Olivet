@@ -26,3 +26,13 @@ def home(request):
         './home.html'
          
     )
+
+def nosotros(request):
+    print(request)
+    print("queryset")
+    
+    return render(
+        request, 
+        './nosotros.html'
+         
+    )
